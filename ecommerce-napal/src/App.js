@@ -10,7 +10,7 @@ function App() {
       <div className="row">
         <div className="col-md-12">
           <NavBar></NavBar>
-          <ItemListContainer></ItemListContainer>
+          <ItemListContainer nameProducto="Nombre Producto" precio="$200" descripcion="Breve descripcion del producto"></ItemListContainer>
         </div>
       </div>
     </div>
