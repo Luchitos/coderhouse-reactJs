@@ -10,7 +10,12 @@ function App() {
       <div className="row">
         <div className="col-md-12">
           <NavBar></NavBar>
-          <ItemListContainer nameProducto="Nombre Producto" precio="$200" descripcion="Breve descripcion del producto"></ItemListContainer>
+          <ItemListContainer
+            nameProducto="Nombre Producto"
+            precio="$200"
+            descripcion="Breve descripcion del producto"
+            url="https://www.layoutit.com/img/people-q-c-600-200-1.jpg">
+          </ItemListContainer>
         </div>
       </div>
     </div>

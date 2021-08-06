@@ -12,7 +12,7 @@ const ItemListContainer = (props) => {
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
-                                <img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg" />
+                                <img class="card-img-top" alt="Bootstrap Thumbnail First" src={props.url} />
                                 <div class="card-block">
                                     <h2 class="card-title">
                                         {props.nameProducto}
