@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import ItemCount from "../ItemCount/ItemCount"
 
 const ItemListContainer = (props) => {
     //Se suscribe a una variable
@@ -21,6 +22,7 @@ const ItemListContainer = (props) => {
                                     <p class="card-text">
                                         {props.descripcion}
                                     </p>
+                                    <ItemCount stock={props.stock}></ItemCount>
                                 </div>
                             </div>
                         </div>
