@@ -16,7 +16,8 @@ function App() {
             precio="$200"
             descripcion="Breve descripcion del producto"
             url="https://www.layoutit.com/img/people-q-c-600-200-1.jpg"
-            stock="5">
+            stock="5"
+            initial="1">
           </ItemListContainer>
 
         </div>

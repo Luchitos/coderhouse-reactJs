@@ -22,7 +22,7 @@ const ItemListContainer = (props) => {
                                     <p class="card-text">
                                         {props.descripcion}
                                     </p>
-                                    <ItemCount stock={props.stock}></ItemCount>
+                                    <ItemCount stock={props.stock} initial={props.initial}></ItemCount>
                                 </div>
                             </div>
                         </div>
