@@ -7,15 +7,15 @@ const ItemDetailContainer = ({ nombre, precio, descripcion, url, stock, initial 
     }
 
     return <>
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" alt="Bootstrap Thumbnail First" src={url} />
-                <div class="card-block">
-                    <h2 class="card-title">
+        <div className="col-md-4">
+            <div className="card">
+                <img className="card-img-top" alt="Bootstrap Thumbnail First" src={url} />
+                <div className="card-block">
+                    <h2 className="card-title">
                         {nombre}
                     </h2>
                     <h4>{precio}</h4>
-                    <p class="card-text">
+                    <p className="card-text">
                         {descripcion}
                     </p>
                     <ItemCount stock={stock} initial={initial} onAdd={handleAdd}></ItemCount>

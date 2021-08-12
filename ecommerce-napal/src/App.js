@@ -12,8 +12,7 @@ function App() {
       <div className="row">
         <div className="col-md-12">
           <NavBar></NavBar>
-          <ItemListContainer>
-          </ItemListContainer>
+          <ItemListContainer/>
         </div>
       </div>
     </div>
