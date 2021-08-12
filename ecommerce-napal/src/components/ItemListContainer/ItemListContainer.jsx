@@ -1,35 +1,26 @@
 import { useEffect } from "react"
-import ItemCount from "../ItemCount/ItemCount"
+
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
     //Se suscribe a una variable
     useEffect(() => {
 
     }, [])
-    const handleAdd = (count) => {
-        console.log("La cantidad a agregar es: ", count)
-    }
     return <>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="card">
-                                <img class="card-img-top" alt="Bootstrap Thumbnail First" src={props.url} />
-                                <div class="card-block">
-                                    <h2 class="card-title">
-                                        {props.nameProducto}
-                                    </h2>
-                                    <h4>{props.precio}</h4>
-                                    <p class="card-text">
-                                        {props.descripcion}
-                                    </p>
-                                    <ItemCount stock={props.stock} initial={props.initial} onAdd={handleAdd}></ItemCount>
-                                </div>
-                            </div>
+                            <ItemDetailContainer
+                                nombre="Nombre Producto"
+                                precio="$200"
+                                descripcion="Breve descripcion del producto"
+                                url="https://www.layoutit.com/img/people-q-c-600-200-1.jpg"
+                                stock="5"
+                                initial="1"></ItemDetailContainer>
                         </div>
                     </div>
                 </div>
