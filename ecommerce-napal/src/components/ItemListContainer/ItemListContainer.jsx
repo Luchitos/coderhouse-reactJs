@@ -6,6 +6,9 @@ const ItemListContainer = (props) => {
     useEffect(() => {
 
     }, [])
+    const handleAdd = (count) => {
+        console.log("La cantidad a agregar es: ", count)
+    }
     return <>
         <div class="container-fluid">
             <div class="row">
@@ -22,7 +25,7 @@ const ItemListContainer = (props) => {
                                     <p class="card-text">
                                         {props.descripcion}
                                     </p>
-                                    <ItemCount stock={props.stock} initial={props.initial}></ItemCount>
+                                    <ItemCount stock={props.stock} initial={props.initial} onAdd={handleAdd}></ItemCount>
                                 </div>
                             </div>
                         </div>
