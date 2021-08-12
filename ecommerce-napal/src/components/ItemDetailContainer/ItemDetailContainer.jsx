@@ -1,6 +1,6 @@
 import ItemCount from "../ItemCount/ItemCount"
 
-const ItemDetailContainer = ({ props }) => {
+const ItemDetailContainer = ({ nombre,precio,descripcion,url,stock,initial }) => {
 
     const handleAdd = (count) => {
         console.log("La cantidad a agregar es: ", count)
@@ -8,16 +8,16 @@ const ItemDetailContainer = ({ props }) => {
 
     return <>
         <div class="card">
-            <img class="card-img-top" alt="Bootstrap Thumbnail First" src={props.url} />
+            <img class="card-img-top" alt="Bootstrap Thumbnail First" src={url}/>
             <div class="card-block">
                 <h2 class="card-title">
-                    {props.nameProducto}
+                    {nombre}
                 </h2>
-                <h4>{props.precio}</h4>
+                <h4>{precio}</h4>
                 <p class="card-text">
-                    {props.descripcion}
+                    {descripcion}
                 </p>
-                <ItemCount stock={props.stock} initial={props.initial} onAdd={handleAdd}></ItemCount>
+                <ItemCount stock={stock} initial={initial} onAdd={handleAdd}></ItemCount>
             </div>
         </div>
     </>
