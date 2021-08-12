@@ -7,6 +7,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 function App() {
 
   return (
+  <>
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-12">
@@ -16,6 +17,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

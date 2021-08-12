@@ -1,27 +1,36 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 
+const getData = () => {
+    // /data/producto.json
+    // 
+    return fetch('https://api.mercadolibre.com/sites/MLA/search?q=velas%20soja')
+        .then(response => {
+            return response.json();
+        })
+}
+
 
 const ItemListContainer = () => {
+    const [itemList, setitemList] = useState([])
     //Se suscribe a una variable
-    useEffect(() => {
-
+    useEffect(async () => {
+        const data = await getData()
+        const arr = []
+        data.results.forEach(item => {
+            arr.push(<ItemDetailContainer key={item.id} nombre={item.title} descripcion={item.title} precio={item.price} url={item.thumbnail} stock={item.available_quantity} />)
+        })
+        setitemList(arr)
     }, [])
+
     return <>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-4">
-                            <ItemDetailContainer
-                                nombre="Nombre Producto"
-                                precio="$200"
-                                descripcion="Breve descripcion del producto"
-                                url="https://www.layoutit.com/img/people-q-c-600-200-1.jpg"
-                                stock="5"
-                                initial="1"></ItemDetailContainer>
-                        </div>
+
+                        {itemList}
                     </div>
                 </div>
             </div>
@@ -32,12 +41,15 @@ export default ItemListContainer
 
 
 
-// Para esta entrega está todo bien pero me está faltando un punto de la consigna,
-//  que es la prop que tenés que pasarle al ItemListContainer.
-//   A lo que me refiero es que el mensaje que está hardcodeado en en componente 
-//   ItemListContainer venga desde su padre cómo una prop. (en este caso App.js) 
-
-// Y fijate si podes sumarle también que no sea solo un tag <p>,
-//  sino algún div con un h1 adentro para hacerlo un poquito más complejo. 
-
-
+// const [itemList, setitemList] = useState(new Set())
+// //Se suscribe a una variable
+// useEffect(async () => {
+//     const data = await getData()
+//     // console.log(data)
+//     data.results.forEach(item => {
+//         const arr = [... itemList]
+//         arr.push(<ItemDetailContainer key={item.id} nombre={item.title} descripcion={item.title} precio={item.price} url={item.thumbnail} stock={item.available_quantity}/>)
+//         setitemList(arr) 
+//         setitemList(prev => prev.push)
+//     })
+// }, [])
