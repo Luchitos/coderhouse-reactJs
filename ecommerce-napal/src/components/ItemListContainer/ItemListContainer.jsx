@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 import ItemCount from "../ItemCount/ItemCount"
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+
 
 const ItemListContainer = (props) => {
     //Se suscribe a una variable
