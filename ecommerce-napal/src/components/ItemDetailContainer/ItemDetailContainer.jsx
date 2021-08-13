@@ -1,4 +1,5 @@
-import ItemCount from "../ItemCount/ItemCount"
+
+import ItemDetail from "../ItemDetail/ItemDetail"
 
 const ItemDetailContainer = ({ nombre, precio, descripcion, url, stock, initial }) => {
 
@@ -15,10 +16,9 @@ const ItemDetailContainer = ({ nombre, precio, descripcion, url, stock, initial 
                         {nombre}
                     </h2>
                     <h4>{precio}</h4>
-                    <p className="card-text">
-                        {descripcion}
-                    </p>
-                    <ItemCount stock={stock} initial={initial} onAdd={handleAdd}></ItemCount>
+                    <button type="button" className="btn btn-primary"> Detalles
+                        <ItemDetail nombre={nombre} stock={stock} initial={initial} descripcion={descripcion} />
+                    </button>
                 </div>
             </div>
         </div>
