@@ -21,12 +21,14 @@ const ItemList = () => {
     }, [])
 
     return (<>
-        {cargando ? <h2>CARGANDO PRODUCTOS</h2> :
+        {cargando ? <h4>LOADING...</h4>:
             productos.map((producto) =>
                 <Item key={producto.id}
                     title={producto.title}
                     description={producto.description}
-                    price={producto.price} />)
+                    price={producto.price} 
+                    pictureUrl={producto.pictureUrl}
+                    stock={parseInt(producto.stock)}/>)
         }
     </>)
 }
