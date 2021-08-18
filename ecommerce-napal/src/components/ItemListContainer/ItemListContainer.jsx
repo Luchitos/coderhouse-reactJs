@@ -1,31 +1,19 @@
 import { useEffect, useState } from "react"
 
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+// import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
+import ItemList from "../../ItemList/ItemList"
+
 
 const ItemListContainer = () => {
 
-    const [itemList, setitemList] = useState([]);
-    useEffect(() => {
-        const peticion = async () => {
-            const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=velas%20soja');
-            const datos = await response.json();
-            const arr = []
-            datos.results.forEach(item => {
-                arr.push(<ItemDetailContainer key={item.id} nombre={item.title} descripcion={item.title} precio={item.price} url={item.thumbnail} stock='10' initial='1' />)
-            })
-            setitemList(arr)
-        }
-        setTimeout(() => {
-            peticion()
-        }, 2000)
-    }, [])
+
 
     return <>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12">
                     <div className="row">
-                        {itemList}
+                        <ItemList />
                     </div>
                 </div>
             </div>
@@ -35,6 +23,23 @@ const ItemListContainer = () => {
 export default ItemListContainer
 
 // ---- Otras formas------
+    // const [itemList, setitemList] = useState([]);
+    // useEffect(() => {
+    //     const peticion = async () => {
+    //         const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=velas%20soja');
+    //         const datos = await response.json();
+    //         const arr = []
+    //         datos.results.forEach(item => {
+    //             arr.push(<ItemDetailContainer key={item.id} nombre={item.title} descripcion={item.title} precio={item.price} url={item.thumbnail} stock='10' initial='1' />)
+    //         })
+    //         setitemList(arr)
+    //     }
+    //     setTimeout(() => {
+    //         peticion()
+    //     }, 2000)
+    // }, [])
+
+
 // const getData = () => {
 //     // /data/producto.json
 //     // 

@@ -1,26 +1,28 @@
 import { useState } from "react"
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ props, initial, onAdd }) => {
     //Es recomendable que sea const
     const [count, setCount] = useState(parseInt(initial))
+    const [stock, setStock] = useState(props.stock)
     //UseState devuelve un array 
 
     const handleOperation = (op) => {
 
         // op === "+" ? setCount(count+1) : setCount(count-1)
         if (op == "+")
-            if (count < stock) setCount(count + 1)
+            if (count < stock) setCount(count + 1); setStock(stock - 1)
         if (op == "-")
-            if (count > 1) setCount(count - 1)
+            if (count > 1) setCount(count - 1); setStock(stock + 1)
     }
     const handleAdd = (count) => {
         console.log("La cantidad a agregar es: ", count)
     }
     return <>
-        <button type="button" className="btn btn-primary" onClick={() => handleOperation("+")}>+</button>
-        <button type="button" className="btn btn-secondary" onClick={() => handleOperation("-")}> -</button >
+        <button type="button" className="btn btn-primary" disable={stock === '0'} disable={stock === count} onClick={() => handleOperation("+")}>+</button>
+        <button type="button" className="btn btn-secondary" disable={stock === '0'} onClick={() => handleOperation("-")}> -</button >
         <div>{count}</div>
-        <button type="button" className="btn btn-info" onClick={() => onAdd(count)}>Agregar al carrito</button >
+        <button type="button" className="btn btn-info"  onClick={() => onAdd(count)}>Agregar al carrito</button >
+        <span>Stock Disponible:  {stock}</span>
     </>
 }
 
