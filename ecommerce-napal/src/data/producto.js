@@ -1,4 +1,4 @@
-[
+const producto = [
   {
       "id": 0,
       "title": "Vela La Pampa",
@@ -56,3 +56,5 @@
       "description": "Descripcion del producto"
   }
 ]
+
+export default producto
