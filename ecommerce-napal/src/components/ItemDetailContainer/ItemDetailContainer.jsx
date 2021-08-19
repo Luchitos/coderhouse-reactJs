@@ -1,5 +1,5 @@
 
-import ItemDetail from "../ItemDetail/ItemDetail"
+import ItemDetail from "./ItemDetail/ItemDetail"
 
 const ItemDetailContainer = ({ nombre, precio, descripcion, url, stock, initial }) => {
 

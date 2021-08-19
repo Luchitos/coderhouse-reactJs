@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
-
+import ItemDetailContainerNew from "../ItemDetailContainer/ItemDetailContainerNew"
 // import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 import ItemList from "../../ItemList/ItemList"
 
 
 const ItemListContainer = () => {
-
 
 
     return <>
@@ -14,6 +13,7 @@ const ItemListContainer = () => {
                 <div className="col-md-12">
                     <div className="row">
                         <ItemList />
+                        {/* <ItemDetailContainerNew/> */}
                     </div>
                 </div>
             </div>
