@@ -15,7 +15,6 @@ const Item = ({ title, description, price, pictureUrl, stock, categoria, id }) =
                         <h2 className="card-title">
                             {title}
                         </h2>
-                        <h3>{description}</h3>
                     </Link>
                     <h4>${price}</h4>
                     <ItemCountNew stock={parseInt(stock)} />

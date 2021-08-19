@@ -5,7 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainerNew from './components/ItemDetailContainer/ItemDetailContainerNew';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CartWidget from './components/CartWidget/CartWidget';
-import ItemList from './ItemList/ItemList';
+import ItemList from './components/ItemList/ItemList';
 import ContactForm from './components/ContactForm/ContactForm';
 
 

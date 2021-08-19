@@ -1,4 +1,4 @@
-import data from '../data/producto'
+import data from '../../data/producto'
 import Item from './Item/Item.jsx'
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router"

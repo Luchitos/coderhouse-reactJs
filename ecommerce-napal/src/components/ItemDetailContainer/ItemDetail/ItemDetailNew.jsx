@@ -1,4 +1,4 @@
-import ItemCountNew from "../../../ItemCountNew/ItemCountNew"
+import ItemCountNew from "../../ItemCountNew/ItemCountNew"
 
 const ItemDetailNew = ({title,description,price,pictureUrl,stock} ) => {
     const handleAdd = (count) => {
