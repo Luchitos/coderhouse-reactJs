@@ -6,6 +6,7 @@ import ItemDetailContainerNew from './components/ItemDetailContainer/ItemDetailC
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CartWidget from './components/CartWidget/CartWidget';
 import ItemList from './ItemList/ItemList';
+import ContactForm from './components/ContactForm/ContactForm';
 
 
 
@@ -27,6 +28,10 @@ function App() {
               <Route path="/:categoria/" exact>
                 <ItemList />
               </Route>
+              <Route path="/contacto" exact>
+                <ContactForm/>
+              </Route>
+              
             </Switch>
           </div>
         </div>

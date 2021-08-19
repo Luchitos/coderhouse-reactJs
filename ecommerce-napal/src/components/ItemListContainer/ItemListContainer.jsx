@@ -8,16 +8,7 @@ const ItemListContainer = () => {
 
 
     return <>
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="row">
-                        <ItemList />
-                        {/* <ItemDetailContainerNew/> */}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ItemList />
     </>
 }
 export default ItemListContainer

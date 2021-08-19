@@ -18,7 +18,7 @@ export default function NavBar() {
                         <span className="nav-link" >Floreros</span>
                     </li></Link>
                     <Link to="/contacto"><li className="nav-item">
-                        <span className="nav-link" >Contacto</span>
+                        <span className="nav-link" >contacto</span>
                     </li></Link>
                 </ul>
             </div>
