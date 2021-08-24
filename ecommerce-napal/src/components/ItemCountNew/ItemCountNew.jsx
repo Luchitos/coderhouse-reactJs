@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
-const ItemCountNew = ({ props, defaultValue = 0, onAdd = () => {} }) => {
-    const [stock, setStock] = useState(props.stock)
+const ItemCountNew = ({ stocks, defaultValue = 0, onAdd = () => {} }) => {
+    const [stock, setStock] = useState(stocks)
     const [unidades, setUnidades] = useState(0)
     const [count , setCount] = useState(defaultValue)
 

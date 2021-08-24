@@ -1,4 +1,6 @@
 import ItemCountNew from "../../ItemCountNew/ItemCountNew"
+import React, { useState } from "react"
+
 
 const ItemDetailNew = ({title,description,price,pictureUrl,stock} ) => {
     const handleAdd = (count) => {
@@ -29,7 +31,7 @@ const ItemDetailNew = ({title,description,price,pictureUrl,stock} ) => {
             {itemsCountVisible && <ItemCountNew stock={parseInt(stock)} /> }
             <br/>
             <br/>
-            <button onClick={onAddTocart}> Agregar al carruto</button>
+            <button onClick={onAddToCart}> Agregar al carruto</button>
             <button onClick={onBuy}> Comprar </button>
             <button onClick={onFinishBuy}> Finalizar Compra </button>
         </div>
