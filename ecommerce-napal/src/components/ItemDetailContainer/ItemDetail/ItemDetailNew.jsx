@@ -4,6 +4,21 @@ const ItemDetailNew = ({title,description,price,pictureUrl,stock} ) => {
     const handleAdd = (count) => {
         console.log("La cantidad a agregar es: ", count)
     }
+    const [itemsCountVisible, setItemCountVisible] = useState(true)
+    const [itemsCount, setItemCount] = useState(0)
+
+    const onAdd = (count) =>{
+        setItemCount(count)
+    }
+    const onAddToCart = () => {
+        setItemCountVisible(false)
+    }
+    const onBuy = () => {
+        setItemCountVisible(false)
+    }
+    const onFinishBuy = () => {
+        console.log("Terminar la compra")
+    }
     return <>
         <div>
             <h2>Componente Detail</h2>
@@ -11,7 +26,12 @@ const ItemDetailNew = ({title,description,price,pictureUrl,stock} ) => {
             <h3>{description}</h3>
             <h4>${price}</h4>
             <img style={{width:"100px", height:"100px" }} src={pictureUrl} alt={title}/> 
-            <ItemCountNew stock={parseInt(stock)} />
+            {itemsCountVisible && <ItemCountNew stock={parseInt(stock)} /> }
+            <br/>
+            <br/>
+            <button onClick={onAddTocart}> Agregar al carruto</button>
+            <button onClick={onBuy}> Comprar </button>
+            <button onClick={onFinishBuy}> Finalizar Compra </button>
         </div>
     </>
 }

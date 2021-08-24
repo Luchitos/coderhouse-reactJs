@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 
-const ItemCountNew = (props) => {
+const ItemCountNew = ({ props, defaultValue = 0, onAdd = () => {} }) => {
     const [stock, setStock] = useState(props.stock)
     const [unidades, setUnidades] = useState(0)
+    const [count , setCount] = useState(defaultValue)
 
     const handleStock = {
         sumaStock: () => {
@@ -23,6 +24,9 @@ const ItemCountNew = (props) => {
         }
 
     }
+    useEffect(() => {
+        onAdd(count)
+    }, [count])
     return (
         <>
             <button type="button" className="btn btn-primary" onClick={handleStock.sumaStock} disabled={stock === '0'}>Agregar +</button>

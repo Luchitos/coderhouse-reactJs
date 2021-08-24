@@ -30,8 +30,7 @@ function App() {
               </Route>
               <Route path="/contacto" exact>
                 <ContactForm/>
-              </Route>
-              
+              </Route>  
             </Switch>
           </div>
         </div>
