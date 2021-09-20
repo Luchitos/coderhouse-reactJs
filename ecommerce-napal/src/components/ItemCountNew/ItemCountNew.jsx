@@ -7,7 +7,7 @@ const ItemCountNew = ({ stocks, defaultValue = 0, onAdd = () => {} }) => {
 
     const handleStock = {
         sumaStock: () => {
-            if (stock === 0) {
+            if (stocks === 0) {
                 alert('no hay mas stock')
             } else {
                 setUnidades(unidades + 1)
@@ -22,7 +22,6 @@ const ItemCountNew = ({ stocks, defaultValue = 0, onAdd = () => {} }) => {
                 setStock(stock + 1)
             }
         }
-
     }
     useEffect(() => {
         onAdd(count)
@@ -32,7 +31,7 @@ const ItemCountNew = ({ stocks, defaultValue = 0, onAdd = () => {} }) => {
             <button type="button" className="btn btn-primary" onClick={handleStock.sumaStock} disabled={stock === '0'}>Agregar +</button>
             <div>{unidades}</div>
             <button type="button" className="btn btn-secondary" onClick={handleStock.restaStock} disabled={stock === '0'}>Quitar -</button>
-            <div>Stock disponible: {stock}</div>
+            <div>Stock disponible: {stocks}</div>
         </>
     )
 }
