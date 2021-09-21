@@ -11,11 +11,12 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
     const [itemsCount, setItemCount] = useState(0)
 
     const onAdd = (count) => {
+        debugger
+        console.log(count)
+
         setItemCount(count)
     }
-    const onAddToCart = () => {
-        setItemCountVisible(false)
-    }
+
     const onBuy = () => {
         setItemCountVisible(false)
     }
@@ -30,17 +31,7 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
             <h3>{description}</h3>
             <h4>${price}</h4>
             <img style={{ width: "100px", height: "100px" }} src={pictureUrl} alt={title} />
-            {itemsCountVisible && <ItemCountNew stocks={parseInt(stock)} />}
-            <br />
-            <br />
-            {
-                buyButtonVisibility && <>
-                    <button onClick={onAddToCart}> Agregar al carruto</button>
-                    <button onClick={onBuy}> Comprar </button>
-                </>
-            }
-
-            <button onClick={onFinishBuy}> Finalizar Compra </button>
+            {itemsCountVisible && <ItemCountNew stocks={parseInt(stock)} onAdd={onAdd} />}
         </div>
     </>
 }

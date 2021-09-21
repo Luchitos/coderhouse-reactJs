@@ -32,6 +32,7 @@ const ItemCountNew = ({ stocks, defaultValue = 0, onAdd = () => {} }) => {
             <div>{unidades}</div>
             <button type="button" className="btn btn-secondary" onClick={handleStock.restaStock} disabled={stocks === '0'}>Quitar -</button>
             <div>Stock disponible: {stocks}</div>
+            <button onClick={() => onAdd({unidades})}>Argegar al carrito </button>
         </>
     )
 }
