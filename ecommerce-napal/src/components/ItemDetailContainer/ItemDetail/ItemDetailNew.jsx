@@ -30,7 +30,7 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
             <h3>{description}</h3>
             <h4>${price}</h4>
             <img style={{ width: "100px", height: "100px" }} src={pictureUrl} alt={title} />
-            {itemsCountVisible && <ItemCountNew stock={parseInt(stock)} />}
+            {itemsCountVisible && <ItemCountNew stocks={parseInt(stock)} />}
             <br />
             <br />
             {
