@@ -10,7 +10,7 @@ import ContactForm from './components/ContactForm/ContactForm';
 
 
 
-function App() {
+function App() { 
 
   return (
     <BrowserRouter>
@@ -22,12 +22,16 @@ function App() {
               <Route exact path="/">
                 <ItemListContainer />
               </Route>
+              <Route path="/cart" exact>
+                <div>Proximamente Carrito</div>
+              </Route>
               <Route path="/:categoria/:id" exact>
                 <ItemDetailContainerNew />
               </Route>
               <Route path="/:categoria/" exact>
                 <ItemList />
               </Route>
+
               <Route path="/contacto" exact>
                 <ContactForm/>
               </Route>  

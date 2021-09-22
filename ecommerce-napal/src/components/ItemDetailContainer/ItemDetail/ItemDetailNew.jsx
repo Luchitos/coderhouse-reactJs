@@ -1,6 +1,6 @@
 import ItemCountNew from "../../ItemCountNew/ItemCountNew"
 import React, { useState } from "react"
-
+import { Link } from "react-router-dom"
 
 const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
     const handleAdd = (count) => {
@@ -12,19 +12,11 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
     const [buy, setBuy] = useState()
 
     const onAdd = (count) => {
-        debugger
         console.log(count)
         setBuy(true)
         setItemCount(count)
     }
-
-    const onBuy = () => {
-        setItemCountVisible(false)
-    }
-    const onFinishBuy = () => {
-        setbuybuttonsVisibility(false)
-        console.log("Terminar la compra")
-    }
+ 
     return <>
         <div>
             <h2>Componente Detail</h2>
@@ -32,7 +24,7 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
             <h3>{description}</h3>
             <h4>${price}</h4>
             <img style={{ width: "100px", height: "100px" }} src={pictureUrl} alt={title} />
-            {!buy ? <ItemCountNew stocks={parseInt(stock)} onAdd={onAdd} /> : <button>Terminar compra</button>}
+            {!buy ? <ItemCountNew stocks={parseInt(stock)} onAdd={onAdd} /> : <Link to="/cart"><button>Terminar compra</button></Link> }
         </div>
     </>
 }
