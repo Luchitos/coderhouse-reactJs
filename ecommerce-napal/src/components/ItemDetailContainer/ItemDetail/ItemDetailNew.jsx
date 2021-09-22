@@ -7,13 +7,14 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
         console.log("La cantidad a agregar es: ", count)
     }
     const [itemsCountVisible, setItemCountVisible] = useState(true)
-    const [buyButtonVisibility, setbuybuttonsVisibility] = useState(true)
+    const [buyButtonVisibility, setbuybuttonsVisibility] = useState(false)
     const [itemsCount, setItemCount] = useState(0)
+    const [buy, setBuy] = useState()
 
     const onAdd = (count) => {
         debugger
         console.log(count)
-
+        setBuy(true)
         setItemCount(count)
     }
 
@@ -31,7 +32,7 @@ const ItemDetailNew = ({ title, description, price, pictureUrl, stock }) => {
             <h3>{description}</h3>
             <h4>${price}</h4>
             <img style={{ width: "100px", height: "100px" }} src={pictureUrl} alt={title} />
-            {itemsCountVisible && <ItemCountNew stocks={parseInt(stock)} onAdd={onAdd} />}
+            {!buy ? <ItemCountNew stocks={parseInt(stock)} onAdd={onAdd} /> : <button>Terminar compra</button>}
         </div>
     </>
 }
