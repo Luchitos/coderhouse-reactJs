@@ -2,6 +2,8 @@ import data from '../../data/producto'
 import Item from './Item/Item.jsx'
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router"
+import { allItem } from '../../firebase'
+
 
 const ItemList = () => {
 
@@ -10,23 +12,21 @@ const ItemList = () => {
     const [cargando, setCargando] = useState(true)
 
     useEffect(() => {
-        const productos = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve(data)
-                }, 2)
-            })
-        }
-        productos().then((items) => {
+
             if (categoria != null) {
-                const productosFiltrados = items.filter((producto) => producto.categoria === categoria)
-                setProductos(productosFiltrados)
-                setCargando(false)
+                console.log('nada')
             } else {
-                setProductos(items)
-                setCargando(false)
+                const items = allItem()
+                items.then((data) => {
+                    const itemAux = []
+                    data.forEach(item => {
+                        itemAux.push({id:item.id, title:item.data().titulo, description:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
+                    });
+                    debugger
+                    setProductos(itemAux)
+                    setCargando(false)
+                })
             }
-        })
     }, [categoria])
 
 

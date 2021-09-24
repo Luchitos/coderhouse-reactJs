@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import ItemDetailContainerNew from "../ItemDetailContainer/ItemDetailContainerNew"
 // import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 import ItemList from "../ItemList/ItemList"
 

@@ -17,9 +17,8 @@ const Item = ({ title, description, price, pictureUrl, stock, categoria, id }) =
                         </h2>
                     </Link>
                     <h4>${price}</h4>
-                    <ItemCountNew id={id} stocks={parseInt(stock)} />
                 </div>
-
+                <ItemCountNew id={id} stocks={parseInt(stock)} />
             </div>
         </div>
     </>
