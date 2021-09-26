@@ -2,7 +2,7 @@ import data from '../../data/producto'
 import Item from './Item/Item.jsx'
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router"
-import { allItem } from '../../firebase'
+import { allItem, itemCat } from '../../firebase'
 
 
 const ItemList = () => {
@@ -14,7 +14,16 @@ const ItemList = () => {
     useEffect(() => {
 
             if (categoria != null) {
-                console.log('nada')
+                const items = itemCat(categoria)
+                items.then((data) => {
+                    const itemAux = []
+                    data.forEach(item => {
+                        itemAux.push({id:item.id, title:item.data().titulo, description:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
+                    });
+
+                    setProductos(itemAux)
+                    setCargando(false)
+                })
             } else {
                 const items = allItem()
                 items.then((data) => {
@@ -22,7 +31,7 @@ const ItemList = () => {
                     data.forEach(item => {
                         itemAux.push({id:item.id, title:item.data().titulo, description:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
                     });
-                    debugger
+
                     setProductos(itemAux)
                     setCargando(false)
                 })
@@ -49,10 +58,7 @@ const ItemList = () => {
                             )
                         }
                     </div>
-                </div>
-
-
-            
+                </div>        
         </>
     )
 }
