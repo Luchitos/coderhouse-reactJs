@@ -1,7 +1,7 @@
 
 import ItemDetail from "./ItemDetail/ItemDetail"
 
-const ItemDetailContainer = ({ nombre, precio, descripcion, url, stock, initial }) => {
+const ItemDetailContainer = ({ nombre, precio, descripcion, UrlPicture, stock, initial }) => {
 
     const handleAdd = (count) => {
         console.log("La cantidad a agregar es: ", count)
@@ -10,7 +10,7 @@ const ItemDetailContainer = ({ nombre, precio, descripcion, url, stock, initial 
     return <>
         <div className="col-md-4">
             <div className="card">
-                <img className="card-img-top" alt="Bootstrap Thumbnail First" src={url} />
+                <img className="card-img-top" alt="Bootstrap Thumbnail First" src={UrlPicture} />
                 <div className="card-block">
                     <h2 className="card-title">
                         {nombre}
