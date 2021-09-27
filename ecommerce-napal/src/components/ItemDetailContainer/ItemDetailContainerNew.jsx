@@ -1,40 +1,51 @@
-import data from '../../data/producto'
-import ItemDetailNew from './ItemDetail/ItemDetailNew'
-import React, { useState, useEffect } from 'react'
-import { useParams } from "react-router"
+import ItemDetailNew from "./ItemDetail/ItemDetailNew";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
+import { itemOnly } from "../../firebase";
 
 const ItemDetailContainerNew = () => {
-    const [producto, setProducto] = useState([])
-    const [cargando, setCargando] = useState(true)
+  const [producto, setProducto] = useState([]);
+  const [cargando, setCargando] = useState(true);
 
-    const {id} = useParams()
-    console.log(id)
+  const { id } = useParams();
 
-    useEffect(() => {
-        const productos = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve(data)
-                }, 2000)
-            })
-        }
-        productos().then((items) => {
-            const producto = items.find(producto => producto.id === parseInt(id))
-            setProducto(producto)
-            setCargando(false)
-        })
-    }, [])
+  useEffect(() => {
+    const item = itemOnly(id);
+    item.then((data) => {
+      const itemAux = [];
+      data.forEach((item) => {
+        itemAux.push({
+          id: item.id,
+          title: item.data().titulo,
+          precio: item.data().Precio,
+          categoria: item.data().categoria,
+          Descripcion: item.data().Descripcion,
+          stock: item.data().Stock,
+          pictureUrl: item.data().UrlPicture,
+        });
+      });
+      setProducto(itemAux);
+      setCargando(false);
+    });
+  }, [id]);
 
-    return (<>
-        {cargando ? <h4>LOADING PRODUCTO...</h4> :
-            <ItemDetailNew
-                title={producto.title}
-                description={producto.description}
-                price={producto.price}
-                pictureUrl={producto.pictureUrl}
-                stock={parseInt(producto.stock)} />
-        }
-    </>)
-}
+  return (
+    <>
+      {cargando ? (
+        <h4>LOADING PRODUCTO...</h4>
+      ) : (
+        <ItemDetailNew
+          key={producto.id}
+          id={producto.id}
+          titulo={producto.titulo}
+          Descripcion={producto.Descripcion}
+          Precio={producto.Precio}
+          UrlPicture={producto.UrlPicture}
+          Stock={parseInt(producto.Stock)}
+        />
+      )}
+    </>
+  );
+};
 
-export default ItemDetailContainerNew
+export default ItemDetailContainerNew;

@@ -18,7 +18,7 @@ const ItemList = () => {
                 items.then((data) => {
                     const itemAux = []
                     data.forEach(item => {
-                        itemAux.push({id:item.id, title:item.data().titulo, description:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
+                        itemAux.push({id:item.id, title:item.data().titulo,precio:item.data().Precio, Descripcion:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
                     });
 
                     setProductos(itemAux)
@@ -29,7 +29,7 @@ const ItemList = () => {
                 items.then((data) => {
                     const itemAux = []
                     data.forEach(item => {
-                        itemAux.push({id:item.id, title:item.data().titulo, description:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
+                        itemAux.push({id:item.id, title:item.data().titulo, precio:item.data().Precio, categoria:item.data().categoria , Descripcion:item.data().Descripcion, stock:item.data().Stock, pictureUrl:item.data().UrlPicture})
                     });
 
                     setProductos(itemAux)
@@ -48,8 +48,8 @@ const ItemList = () => {
                             productos.map((producto) =>
                                 <Item key={producto.id}
                                     title={producto.title}
-                                    description={producto.description}
-                                    price={producto.price}
+                                    Descripcion={producto.Descripcion}
+                                    price={producto.Precio}
                                     pictureUrl={producto.pictureUrl}
                                     categoria={producto.categoria}
                                     id={producto.id}

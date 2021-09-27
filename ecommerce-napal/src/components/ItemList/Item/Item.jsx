@@ -1,7 +1,7 @@
 import ItemCountNew from "../../ItemCountNew/ItemCountNew"
 import { Link } from 'react-router-dom'
 
-const Item = ({ title, description, price, pictureUrl, stock, categoria, id }) => {
+const Item = ({ title, Descripcion, price, pictureUrl, stock, categoria, id }) => {
     const handleAdd = (count) => {
         console.log("La cantidad a agregar es: ", count)
     }

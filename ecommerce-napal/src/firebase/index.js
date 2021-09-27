@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, where, query } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, where, query, doc } from 'firebase/firestore/lite';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,8 +25,14 @@ export const allItem = () => {
 
 export const itemCat = (categoria) => {
   const queryCat = collection(db, 'items')
-  debugger
   const filtCategoria = query(queryCat, where('categoria', '==', categoria))
   const filtCategoriaAux = getDocs(filtCategoria)
   return filtCategoriaAux
+}
+
+export const itemOnly = (id) => {
+  const queryItem = collection(db, 'items')
+  const itemFiltrado = query(queryItem, where('id', '==', id))
+  const oneItem = getDocs(itemFiltrado)
+  return oneItem
 }
